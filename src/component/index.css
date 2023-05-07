@@ -1,0 +1,10 @@
+.home{
+    margin-left: 15%;
+    justify-content: center;
+}
+ul{
+    list-style-type: disclosure-closed;
+}
+li{
+    font-size :x-large
+}
