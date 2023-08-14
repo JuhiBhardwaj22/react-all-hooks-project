@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { userInfo } from "../constant";
+import { userInfo } from "../../helper/constant/constant";
 
 function WithoutUseMemo() {
   const [users, setUsers] = useState(userInfo);

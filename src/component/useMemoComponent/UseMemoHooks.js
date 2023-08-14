@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { userInfo } from "../constant";
+import { userInfo } from "../../helper/constant/constant";
 import { useMemo } from "react";
 import { useEffect } from "react";
 import WithoutUseMemo from "./WithoutUseMemo";
@@ -8,6 +8,7 @@ function UseMemoHooks() {
   const [users, setUsers] = useState(userInfo);
 
   console.log("usememo before return");
+  
   const sortedUser = useMemo(() => {
     return users
       .map((user) => ({
