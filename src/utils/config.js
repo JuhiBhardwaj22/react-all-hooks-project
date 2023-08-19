@@ -3,6 +3,7 @@ import App from "../App";
 import UseStateHooks from "../component/useStateComponent/UseStateHooks";
 import AboutHooks from "../component/AboutHooks";
 import UseMemoHooks from "../component/useMemoComponent/UseMemoHooks";
+import UseRefHook from "../component/useRefComponent/UseRefHook";
 
 const appRouter = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/useMemoHooks",
         element: <UseMemoHooks />,
+      },
+      {
+        path: "/useRefHooks",
+        element: <UseRefHook />,
       },
       {
         path: "/about",

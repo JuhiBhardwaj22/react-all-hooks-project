@@ -1,0 +1,10 @@
+.use-memo{
+    border: 1px solid black;
+    height: 500px;
+    width: 700px;
+    text-align: center;
+}
+
+.add-theme{
+    background-color: rgb(109, 109, 119);
+}

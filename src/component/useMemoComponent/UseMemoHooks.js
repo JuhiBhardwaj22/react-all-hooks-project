@@ -3,12 +3,13 @@ import { userInfo } from "../../helper/constant/constant";
 import { useMemo } from "react";
 import { useEffect } from "react";
 import WithoutUseMemo from "./WithoutUseMemo";
+import UseMemoExample from "./UseMemoExample";
 
 function UseMemoHooks() {
   const [users, setUsers] = useState(userInfo);
 
   console.log("usememo before return");
-  
+
   const sortedUser = useMemo(() => {
     return users
       .map((user) => ({
@@ -54,6 +55,8 @@ function UseMemoHooks() {
       >
         Add User Info
       </button>
+
+      <UseMemoExample />
     </div>
   );
 }
