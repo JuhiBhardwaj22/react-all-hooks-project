@@ -4,6 +4,8 @@ import UseStateHooks from "../component/useStateComponent/UseStateHooks";
 import AboutHooks from "../component/AboutHooks";
 import UseMemoHooks from "../component/useMemoComponent/UseMemoHooks";
 import UseRefHook from "../component/useRefComponent/UseRefHook";
+import UseCallbackHook from "../component/useCallbackComponent/UseCallbackHook";
+import { UseContextHook } from "../component/useContextComponent/UseContextHook";
 
 const appRouter = createBrowserRouter([
   {
@@ -19,8 +21,16 @@ const appRouter = createBrowserRouter([
         element: <UseMemoHooks />,
       },
       {
+        path: "/useCallback",
+        element: <UseCallbackHook />,
+      },
+      {
         path: "/useRefHooks",
         element: <UseRefHook />,
+      },
+      {
+        path: "/useContextHooks",
+        element: <UseContextHook />,
       },
       {
         path: "/about",

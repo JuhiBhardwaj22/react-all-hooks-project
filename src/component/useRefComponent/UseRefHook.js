@@ -1,13 +1,21 @@
 import React, { useRef, useState } from "react";
+import { UseRefDomExample } from "./UseRefDomExample";
+import ForwardRef from "./ForwardRef";
 
 const UseRefHook = () => {
   const [count, setCount] = useState(0);
+  const [refCount, setRefCount] = useState(100);
 
+  const inputRef = useRef(null);
   let i = 0;
   //ref will maintain the state even component is re-rendering
   const ref = useRef(0);
   console.log("ref.current = ", ref.current);
   console.log("rendering....");
+  const chnageInputFocus = () => {
+    inputRef.current.focus();
+  };
+
   return (
     <div>
       <h1>Local Value-{i}</h1>
@@ -32,6 +40,13 @@ const UseRefHook = () => {
         {" "}
         Ref Inc
       </button>
+      <hr />
+      <h1>Dom manipulate example</h1>
+      <UseRefDomExample />
+      <hr />
+      <h1> forwardRef Example </h1>
+      <button onClick={chnageInputFocus}>Focus</button>
+      <ForwardRef ref={inputRef} />
     </div>
   );
 };

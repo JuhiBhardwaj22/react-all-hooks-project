@@ -8,13 +8,25 @@ function Home() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/useStateHooks">useState Hooks</Link>
+          <Link to="/useStateHooks">useState Hook</Link>
         </li>
         <li>
-          <Link to="/useMemoHooks">useMemo Hooks</Link>
+          <Link to="/useMemoHooks">useMemo Hook</Link>
         </li>
         <li>
-          <Link to="/useRefHooks">useRf Hooks</Link>
+          <Link to="/useCallback">useCallback Hook</Link>
+        </li>
+        <li>
+          <Link to="/useRefHooks">useRf Hook</Link>
+        </li>
+        <li>
+          <Link to="/useContextHooks">useContext Hook</Link>
+        </li>
+        <li>
+          <Link to="/useTransitionHooks">useTransition Hook</Link>
+        </li>
+        <li>
+          <Link to="/useLayoutEffectHooks">useLayoutEffect Hook</Link>
         </li>
         <li>
           <Link to="/about">About Hooks</Link>
