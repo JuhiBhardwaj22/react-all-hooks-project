@@ -60,6 +60,92 @@ function AboutHooks() {
         </ul>
       </div>
       <div>
+        <h1>useEffect</h1>
+        <p>
+          Certainly! In React, the useEffect hook is a fundamental hook that
+          allows you to perform side effects in functional components. Side
+          effects are actions that occur in your component that are not directly
+          related to rendering, such as data fetching, DOM manipulation, or
+          subscriptions to external data sources.
+        </p>
+        <h3>Cleanup</h3>
+        <p>
+          If your useEffect creates any resources or subscriptions that need to
+          be cleaned up when the component unmounts, you can return a cleanup
+          function within the effect
+        </p>
+        <ul>
+          <li>
+            useEffect takes two arguments: a callback function and an optional
+            dependency array. The first argument is the callback function, which
+            contains the code that performs the side effect. This function is
+            executed after the component renders for the first time and after
+            every subsequent render. The optional second argument is an array of
+            dependencies. If provided, useEffect will run the callback function
+            whenever any of the dependencies change. If the dependencies array
+            is empty, the callback runs only after the initial render and not in
+            response to changes in state or props.
+          </li>
+          <li>
+            In summary, useEffect is a React hook used for managing side effects
+            in functional components. It allows you to perform tasks that occur
+            outside the normal render cycle of your component. By specifying
+            dependencies, you can control when the effect runs, and you can also
+            clean up resources when the component is unmounted for proper
+            resource management.
+          </li>
+          <h3>Use of useEffect for Side Effects:</h3>
+          <li>
+            React components, side effects often involve interactions with the
+            external world, such as:
+          </li>
+          <ul>
+            <li>Data fetching from APIs.</li>
+            <li>
+              Updating the DOM (Document Object Model) to manipulate or display
+              data.
+            </li>
+            <li>Subscribing to external data sources like WebSockets</li>
+            <li>
+              Setting up timers or intervals for animations or data polling
+            </li>
+            <li>Managing subscriptions or event listeners</li>
+          </ul>
+          <ul>
+            <h3>Browser's Painting Process</h3>
+            <li>
+              When a web page loads and is being displayed in a web browser, the
+              browser follows a sequence of steps to render the page. One
+              crucial step is the "painting process," where the browser converts
+              the DOM structure into pixels on the screen. This process is
+              responsible for rendering the visual content of a web page.
+            </li>
+            <li>
+              <b> useEffect for Non-Blocking Side Effects:</b> The statement
+              "useEffect is typically used for side effects that don't block the
+              browser's painting process" means that useEffect is commonly used
+              for performing side effects that do not significantly delay or
+              interfere with the browser's ability to paint the UI. In other
+              words, useEffect is ideal for tasks that can be performed
+              asynchronously without causing noticeable delays in rendering.
+            </li>
+          </ul>
+          <li>
+            <b>
+              In summary, useEffect is a React hook designed for managing side
+              effects in functional components. It's typically used for tasks
+              that can be performed asynchronously without causing delays in the
+              browser's ability to render the UI. It's important to use
+              useEffect for side effects that won't block the main thread,
+              ensuring a smooth and responsive user experience. If you have side
+              effects that require synchronous execution or need to interact
+              with the layout before painting, you might consider using
+              useLayoutEffect instead.
+            </b>
+          </li>
+        </ul>
+      </div>
+      <div>
         <h1>useMemo</h1>
         <p>
           useMemo is a React Hook that lets you cache the result of a
@@ -329,6 +415,81 @@ function AboutHooks() {
                 stored in the context.
               </li>
               <li> const contextData = useContext(MyContext);</li>
+            </ul>
+          </ul>
+        </div>
+        <div>
+          <h1>useLayoutEffect</h1>
+          <ul>
+            <h3>React Life Cycle</h3>
+            <li>
+              <b>Mounting</b>: When a component is first created and added to
+              the DOM, it goes through the mounting phase. This is where it
+              renders for the first time.
+            </li>
+            <li>
+              <b>Updating</b>: When the component's state or props change, it
+              goes through the updating phase, leading to a re-render.
+            </li>
+            <li>
+              <b>Unmounting</b>: When a component is removed from the DOM, it
+              goes through the unmounting phase.
+            </li>
+            <ul>
+              <h3>useEffect vs. useLayoutEffect</h3>
+              <li>
+                <b>useEffect:</b> is typically used for side effects that don't
+                block the browser's painting process. It runs after the render
+                is committed to the screen. This makes it suitable for tasks
+                like data fetching, DOM manipulation, or subscribing to external
+                data sources.
+              </li>
+              <li>
+                <b>useLayoutEffect:</b> on the other hand, runs synchronously
+                immediately after the DOM has been updated but before the
+                browser has had a chance to paint those changes on the screen.
+                This is a critical difference because it allows you to make DOM
+                measurements and modifications before the user sees any visual
+                updates.
+              </li>
+              <h3>Why Use useLayoutEffect</h3>
+              <li>
+                There are cases where using useLayoutEffect is necessary, mainly
+                when you need to perform DOM measurements or manipulations that
+                affect the layout before the user sees the updated UI.
+              </li>
+              <li>
+                Calculating Dimensions: If you need to measure elements'
+                dimensions (e.g., to position a tooltip relative to an element),
+                useLayoutEffect guarantees that the DOM is updated before you
+                access these dimensions.
+              </li>
+              <li>
+                Animation: If you're animating elements and need precise control
+                over layout changes and measurements, useLayoutEffect can help
+                prevent flickering or visual glitches by running synchronously.
+              </li>
+            </ul>
+            <ul>
+              <h3>Performance Considerations</h3>
+              <li>
+                Be cautious when using useLayoutEffect because it can block the
+                main thread and potentially cause performance issues if misused.
+                In many cases, useEffect is sufficient and doesn't impact the
+                user experience. Reserve useLayoutEffect for situations where
+                you truly need synchronous updates.
+              </li>
+              <li>
+                In summary, useLayoutEffect is a React hook designed for
+                scenarios where you need to make precise DOM measurements or
+                modifications before the user sees layout changes. It runs
+                synchronously after the DOM update but before rendering,
+                offering a way to ensure your code interacts with the DOM at the
+                right moment in the component lifecycle. However, use it
+                judiciously and prefer useEffect when synchronous updates are
+                not critical, as useLayoutEffect can potentially impact
+                performance.
+              </li>
             </ul>
           </ul>
         </div>

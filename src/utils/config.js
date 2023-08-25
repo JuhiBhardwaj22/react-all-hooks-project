@@ -6,6 +6,7 @@ import UseMemoHooks from "../component/useMemoComponent/UseMemoHooks";
 import UseRefHook from "../component/useRefComponent/UseRefHook";
 import UseCallbackHook from "../component/useCallbackComponent/UseCallbackHook";
 import { UseContextHook } from "../component/useContextComponent/UseContextHook";
+import UseLayoutEffect from "../component/useLayoutEffect/UseLayoutEffect";
 
 const appRouter = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/useContextHooks",
         element: <UseContextHook />,
+      },
+      {
+        path: "/useLayoutEffectHooks",
+        element: <UseLayoutEffect />,
       },
       {
         path: "/about",
