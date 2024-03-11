@@ -10,9 +10,6 @@ function AboutHooks() {
         <p>const [state, setState] = useState(initialState);</p>
         <ul>
           <li>
-            <b>This will return memoize value</b>
-          </li>
-          <li>
             The set function only updates the state variable for the next
             render. If you read the state variable after calling the set
             function, you will still get the old value that was on the screen
@@ -56,6 +53,9 @@ function AboutHooks() {
               update some state multiple times in one event, you can use
               setNumber(n {"->"} n + 1) updater function.
             </p>
+          </li>
+          <li>
+            <b>Update the state asynchronously</b>
           </li>
         </ul>
       </div>
@@ -226,6 +226,15 @@ function AboutHooks() {
               dependencies haven’t changed), or return the fn function you have
               passed during this render.
             </li>
+            <li>
+              <b>
+                Using this hooks child component will not re-render even if we
+                trigger child props. usecallback whenever rendering will happend
+                it will aviod re-creationg of function. it will save the value
+                and compare store value with new value ,only update the state
+                once value will be diff
+              </b>
+            </li>
           </ul>
         </div>
         <div>
@@ -275,6 +284,18 @@ function AboutHooks() {
           <li>
             React.memo is for memoizing entire functional components to prevent
             them from re-rendering unless their props change.
+          </li>
+          <li>
+            <b>
+              if we have any Parent component and inside that if we use any
+              child component then if state variable of parent component will
+              change then it will also re-render child component, in that case
+              we can use memo in child component so that whenever parent
+              component state will change it will not re-render child component.
+              But if parent component trigger any props of child component then
+              memo will not work in that case it will re-render child component,
+              so we can fix this using useCallback hooks.
+            </b>
           </li>
         </ul>
         <div>
@@ -352,6 +373,12 @@ function AboutHooks() {
                 attach the ref to the desired DOM element or component within
                 your custom component.
               </li>
+              <li>
+                Property of ref it persist information across various render
+                cycle it can't casues a re-render. If we need any dom value or
+                want to access dom property in that case we can use ref and we
+                need to pass ref in that element also
+              </li>
             </ul>
           </ul>
         </div>
@@ -416,6 +443,23 @@ function AboutHooks() {
               </li>
               <li> const contextData = useContext(MyContext);</li>
             </ul>
+          </ul>
+          <ul>
+            <li>
+              When the context value changes, only the components that consume
+              that context and have subscribed to it using useContext will
+              re-render. React uses a mechanism called "context reactivity" to
+              efficiently update only the components that depend on the changed
+              context value.
+            </li>
+            <li>
+              So, if you have multiple child components consuming the same
+              context, and the context value changes, only those child
+              components that use useContext to access that context will
+              re-render. Other components that don't consume that context won't
+              be affected and won't re-render unnecessarily. This helps in
+              optimizing performance by reducing unnecessary re-renders
+            </li>
           </ul>
         </div>
         <div>
@@ -489,6 +533,16 @@ function AboutHooks() {
                 judiciously and prefer useEffect when synchronous updates are
                 not critical, as useLayoutEffect can potentially impact
                 performance.
+              </li>
+              <li>
+                UseLayoutEffect will run first then followed by useEffect.
+                useEffectLayout will run before the browser re-paint. Re-paint
+                means before anything show or diplay on the screen or render on
+                the screen. And useEffect will run after the re-paint on screen.
+                we can use useLayoutEffect when we want to do anything on ui
+                before re-paint or screen or before ui visible on screen. e.g if
+                we want calculate height or any css.useEffectLayout helps us to
+                reduce lag andn glitters
               </li>
             </ul>
           </ul>

@@ -10,7 +10,7 @@ const UseRefHook = () => {
   let i = 0;
   //ref will maintain the state even component is re-rendering
   const ref = useRef(0);
-  console.log("ref.current = ", ref.current);
+  console.log("ref -------->", ref);
   console.log("rendering....");
   const chnageInputFocus = () => {
     inputRef.current.focus();
@@ -34,7 +34,7 @@ const UseRefHook = () => {
       <button
         onClick={() => {
           ref.current = ref.current + 1;
-          console.log("ref.current = ", ref.current);
+          console.log("ref -------->", ref);
         }}
       >
         {" "}
